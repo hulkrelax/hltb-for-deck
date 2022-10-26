@@ -22,7 +22,7 @@ jobs:
                   node-version: '18.3'
 
             - name: Install pnpm
-              run: npm install pnpm
+              run: npm install -g pnpm
 
             - name: Install Dependencies
               run: pnpm install
