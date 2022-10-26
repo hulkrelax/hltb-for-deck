@@ -4,6 +4,7 @@
     "flags": [],
     "publish": {
         "tags": ["how long to beat", "backlog", "utility"],
-        "description": "A plugin to show you game lengths according to How Long To Beat"
+        "description": "A plugin to show you game lengths according to How Long To Beat",
+        "image": "https://raw.githubusercontent.com/hulkrelax/hltb-for-deck/main/images/image001.png"
     }
 }
