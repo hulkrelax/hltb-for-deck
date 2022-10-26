@@ -33,6 +33,7 @@ jobs:
             - name: copy files into build
               run: |
                   cp plugin.json ./dist/
+                  cp package.json ./dist/
                   mkdir ./dist/dist
                   mv ./dist/index.js ./dist/dist/
 
