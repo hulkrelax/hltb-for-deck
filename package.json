@@ -1,5 +1,5 @@
 {
-    "name": "hltb_for_deck",
+    "name": "hltb-for-deck",
     "version": "0.1.0",
     "description": "A plugin to show you how long games take to beat",
     "scripts": {
@@ -17,6 +17,7 @@
         "@rollup/plugin-node-resolve": "^13.3.0",
         "@rollup/plugin-replace": "^4.0.0",
         "@rollup/plugin-typescript": "^8.5.0",
+        "@types/fast-levenshtein": "^0.0.2",
         "@types/react": "^17.0.50",
         "@types/react-dom": "^18.0.6",
         "husky": "^8.0.1",
@@ -29,11 +30,13 @@
         "typescript": "^4.8.4"
     },
     "dependencies": {
-        "decky-frontend-lib": "^1.8.3",
+        "decky-frontend-lib": "^3.7.3",
+        "fast-levenshtein": "^3.0.0",
+        "localforage": "^1.10.0",
         "react": "^18.2.0",
         "react-icons": "^4.4.0"
     },
     "lint-staged": {
-        "*.{js,css,md}": "prettier --write"
+        "*.{ts,tsx}": "prettier --write"
     }
 }

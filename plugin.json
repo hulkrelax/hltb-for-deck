@@ -1,10 +1,9 @@
 {
-    "name": "How Long to Beat for Deck",
+    "name": "HLTB for Deck",
     "author": "hulkrelax",
     "flags": [],
     "publish": {
         "tags": ["how long to beat", "backlog", "utility"],
-        "description": "A plugin to show you how long games take to beat",
-        "image": "https://raw.githubusercontent.com/hulkrelax/deckfaqs/main/images/release.png"
+        "description": "A plugin to show you game lengths according to How Long To Beat"
     }
 }
