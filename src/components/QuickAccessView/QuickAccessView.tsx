@@ -15,7 +15,7 @@ export const QuickAccessView = () => {
         <PanelSection>
             <PanelSectionRow>
                 <ButtonItem layout="below" onClick={handleClearCache}>
-                    Reset Cache
+                    Clear Cache
                 </ButtonItem>
             </PanelSectionRow>
         </PanelSection>
