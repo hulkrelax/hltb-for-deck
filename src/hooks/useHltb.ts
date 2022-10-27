@@ -114,7 +114,7 @@ const useHltb = (appId: number, game: string, serverApi: ServerAPI) => {
                                     : '--',
                             mainPlusStat:
                                 gameStats.comp_plus > 0
-                                    ? (gameStats.comp_main / 60 / 60).toFixed(1)
+                                    ? (gameStats.comp_plus / 60 / 60).toFixed(1)
                                     : '--',
                             completeStat:
                                 gameStats.comp_100 > 0
