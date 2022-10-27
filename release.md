@@ -1,4 +1,4 @@
-## HLTB for Deck, How Long to Beat integration for the Steam Deck (v1.0.0)
+## HLTB for Deck, How Long to Beat integration for the Steam Deck (v1.0.1)
 
 - On an app page, shows four main stats offered by How Long to Beat
 - Clicking View Details will take you to their site for the game
