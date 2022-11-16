@@ -3,7 +3,7 @@ import { get } from 'fast-levenshtein';
 import { useState, useEffect } from 'react';
 import { normalize } from '../utils';
 import { GameStatsData, HLTBStats, SearchResults } from './GameInfoData';
-import { getCache, updateCache } from './GameStatsCache';
+import { getCache, updateCache } from './Cache';
 
 type HLTBResult = { body: string; status: number };
 
@@ -49,7 +49,7 @@ const useHltb = (appId: number, game: string, serverApi: ServerAPI) => {
     };
     useEffect(() => {
         const getData = async () => {
-            const cache = await getCache(`${appId}`);
+            const cache = await getCache<HLTBStats>(`${appId}`);
             if (cache && !needCacheUpdate(cache.lastUpdatedAt)) {
                 setStats(cache);
             } else {

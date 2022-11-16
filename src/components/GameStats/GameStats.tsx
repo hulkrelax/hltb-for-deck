@@ -1,5 +1,7 @@
 import { DialogButtonPrimary, Router, ServerAPI } from 'decky-frontend-lib';
+import { useEffect } from 'react';
 import useHltb from '../../hooks/useHltb';
+import { useStyle } from '../../hooks/useStyle';
 import style from './style';
 
 type GameStatsProps = {
@@ -12,13 +14,34 @@ type GameStatsProps = {
 export const GameStats = ({ serverApi, game, appId, id }: GameStatsProps) => {
     const { mainStat, mainPlusStat, completeStat, allStylesStat, gameId } =
         useHltb(appId, game, serverApi);
+    const hltbStyle = useStyle();
+    const baseClass = hltbStyle === null ? 'hltb-info-absolute' : 'hltb-info';
+    let hltbInfoStyle = '';
+    switch (hltbStyle) {
+        case 'clean':
+        case 'clean-left':
+            hltbInfoStyle = 'hltb-info-clean';
+            break;
+        case 'clean-default':
+            hltbInfoStyle = 'hltb-info-clean-default';
+            break;
+    }
+    const hltbInfoPosition =
+        hltbStyle === 'clean-left' ? 'hltb-info-clean-left' : '';
+    const btnStyle =
+        hltbStyle === 'default' || hltbStyle === 'clean-default'
+            ? ''
+            : 'hltb-details-btn-clean';
+
     return (
         <div id={id}>
             {style}
-            <div className="hltb-info">
+            <div
+                className={`${baseClass} ${hltbInfoStyle} ${hltbInfoPosition}`}
+            >
                 {gameId && (
                     <DialogButtonPrimary
-                        className="hltb-details-btn"
+                        className={`hltb-details-btn ${btnStyle}`}
                         onClick={() =>
                             Router.NavigateToExternalWeb(
                                 `https://howlongtobeat.com/game/${gameId}`
