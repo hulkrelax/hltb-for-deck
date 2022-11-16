@@ -1,5 +1,5 @@
-## HLTB for Deck, How Long to Beat integration for the Steam Deck (v1.0.1)
+## HLTB for Deck, How Long to Beat integration for the Steam Deck (v1.1.0)
 
-- On an app page, shows four main stats offered by How Long to Beat
-- Clicking View Details will take you to their site for the game
-- Results are cached for two hours (cache can be cleared from QAM page for HLTB for Deck)
+- Add styles that are compatible with the CSS Loader theme "Clean Game View"
+    - The "Clean" themes are intendend to only be used with this CSS Loader Theme. Technically, the "Clean" Default theme works without this theme; however, I would just continue using regular Default
+- Change refresh rate to HLTB to be every 12 hours instead of 2

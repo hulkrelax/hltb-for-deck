@@ -3,17 +3,17 @@ import { get } from 'fast-levenshtein';
 import { useState, useEffect } from 'react';
 import { normalize } from '../utils';
 import { GameStatsData, HLTBStats, SearchResults } from './GameInfoData';
-import { getCache, updateCache } from './GameStatsCache';
+import { getCache, updateCache } from './Cache';
 
 type HLTBResult = { body: string; status: number };
 
-// update cache after 2 hours
+// update cache after 12 hours
 const needCacheUpdate = (lastUpdatedAt: Date) => {
     const now = new Date();
     const durationMs = Math.abs(lastUpdatedAt.getTime() - now.getTime());
 
     const hoursBetweenDates = durationMs / (60 * 60 * 1000);
-    return hoursBetweenDates > 2;
+    return hoursBetweenDates > 12;
 };
 
 // Hook to get data from HLTB
@@ -49,7 +49,7 @@ const useHltb = (appId: number, game: string, serverApi: ServerAPI) => {
     };
     useEffect(() => {
         const getData = async () => {
-            const cache = await getCache(`${appId}`);
+            const cache = await getCache<HLTBStats>(`${appId}`);
             if (cache && !needCacheUpdate(cache.lastUpdatedAt)) {
                 setStats(cache);
             } else {
