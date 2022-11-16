@@ -7,13 +7,13 @@ import { getCache, updateCache } from './Cache';
 
 type HLTBResult = { body: string; status: number };
 
-// update cache after 2 hours
+// update cache after 12 hours
 const needCacheUpdate = (lastUpdatedAt: Date) => {
     const now = new Date();
     const durationMs = Math.abs(lastUpdatedAt.getTime() - now.getTime());
 
     const hoursBetweenDates = durationMs / (60 * 60 * 1000);
-    return hoursBetweenDates > 2;
+    return hoursBetweenDates > 12;
 };
 
 // Hook to get data from HLTB
