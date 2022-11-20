@@ -89,7 +89,7 @@ const useHltb = (appId: number, game: string, serverApi: ServerAPI) => {
                         );
                     // Couldn't find anything, find a close match
                     if (gameStats === undefined && results.data.length > 0) {
-                        const possibleChoice = results.data
+                        const possibleChoices = results.data
                             .map((gameStat) => {
                                 return {
                                     minEditDistance: get(
@@ -100,10 +100,19 @@ const useHltb = (appId: number, game: string, serverApi: ServerAPI) => {
                                     gameStat,
                                 };
                             })
-                            .sort(
-                                (a, b) => a.minEditDistance - b.minEditDistance
-                            )[0];
-                        gameStats = possibleChoice.gameStat;
+                            .sort((a, b) => {
+                                if (a.minEditDistance === b.minEditDistance) {
+                                    return (
+                                        b.gameStat.comp_all_count -
+                                        a.gameStat.comp_all_count
+                                    );
+                                } else {
+                                    return (
+                                        a.minEditDistance - b.minEditDistance
+                                    );
+                                }
+                            });
+                        gameStats = possibleChoices[0].gameStat;
                     }
                     let newStats = stats;
                     if (gameStats) {
