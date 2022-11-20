@@ -1,5 +1,4 @@
 import { DialogButtonPrimary, Router, ServerAPI } from 'decky-frontend-lib';
-import { useEffect } from 'react';
 import useHltb from '../../hooks/useHltb';
 import { useStyle } from '../../hooks/useStyle';
 import style from './style';

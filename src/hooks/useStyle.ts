@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getCache, styleKey } from './Cache';
+import { getStyle } from './Cache';
 
 export type HLTBStyle =
     | 'default'
@@ -12,10 +12,10 @@ export const useStyle = () => {
     const [style, setStyle] = useState<HLTBStyle>(null);
     useEffect(() => {
         const getData = async () => {
-            setStyle(await getCache<HLTBStyle>(styleKey));
+            setStyle(await getStyle());
         };
         getData();
-    }, [style]);
+    }, []);
 
     return style;
 };
