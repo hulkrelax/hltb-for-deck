@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getStyle } from './Cache';
+import { getPreference, getStyle } from './Cache';
 
 export type HLTBStyle =
     | 'default'
@@ -18,4 +18,16 @@ export const useStyle = () => {
     }, []);
 
     return style;
+};
+
+export const usePreference = () => {
+    const [pref, setPref] = useState<boolean>(false);
+    useEffect(() => {
+        const getData = async () => {
+            setPref(await getPreference());
+        };
+        getData();
+    }, []);
+
+    return pref;
 };

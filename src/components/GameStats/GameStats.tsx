@@ -1,6 +1,6 @@
 import { DialogButtonPrimary, Router, ServerAPI } from 'decky-frontend-lib';
 import useHltb from '../../hooks/useHltb';
-import { useStyle } from '../../hooks/useStyle';
+import { usePreference, useStyle } from '../../hooks/useStyle';
 import style from './style';
 
 type GameStatsProps = {
@@ -14,6 +14,7 @@ export const GameStats = ({ serverApi, game, appId, id }: GameStatsProps) => {
     const { mainStat, mainPlusStat, completeStat, allStylesStat, gameId } =
         useHltb(appId, game, serverApi);
     const hltbStyle = useStyle();
+    const hideDetails = usePreference();
     const baseClass = hltbStyle === null ? 'hltb-info-absolute' : 'hltb-info';
     let hltbInfoStyle = '';
     switch (hltbStyle) {
@@ -38,7 +39,7 @@ export const GameStats = ({ serverApi, game, appId, id }: GameStatsProps) => {
             <div
                 className={`${baseClass} ${hltbInfoStyle} ${hltbInfoPosition}`}
             >
-                {gameId && (
+                {gameId && !hideDetails && (
                     <DialogButtonPrimary
                         className={`hltb-details-btn ${btnStyle}`}
                         onClick={() =>

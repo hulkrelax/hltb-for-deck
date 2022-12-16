@@ -4,9 +4,15 @@ import {
     ButtonItem,
     Router,
     DropdownItem,
+    ToggleField,
 } from 'decky-frontend-lib';
-import { clearCache, styleKey, updateCache } from '../../hooks/Cache';
-import { useStyle } from '../../hooks/useStyle';
+import {
+    clearCache,
+    hideDetailsKey,
+    styleKey,
+    updateCache,
+} from '../../hooks/Cache';
+import { usePreference, useStyle } from '../../hooks/useStyle';
 
 const styleOptions = [
     { data: 0, label: 'Default', value: 'default' },
@@ -21,6 +27,8 @@ export const QuickAccessView = () => {
         Router.CloseSideMenus();
     };
     const style = useStyle();
+    // probably overkill for something so simple but it's fine :)
+    const hideDetails = usePreference();
     return (
         <PanelSection>
             <PanelSectionRow>
@@ -41,6 +49,14 @@ export const QuickAccessView = () => {
                                 ?.value || 'default';
                         updateCache(styleKey, newStyle);
                     }}
+                />
+            </PanelSectionRow>
+            <PanelSectionRow>
+                <ToggleField
+                    label='Hide "View Details"'
+                    description='Hides "View Details" button on HLTB Stats'
+                    checked={hideDetails}
+                    onChange={(checked) => updateCache(hideDetailsKey, checked)}
                 />
             </PanelSectionRow>
             <PanelSectionRow>

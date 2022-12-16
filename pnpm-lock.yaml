@@ -11,7 +11,7 @@ specifiers:
   '@types/fast-levenshtein': ^0.0.2
   '@types/react': ^17.0.50
   '@types/react-dom': ^18.0.6
-  decky-frontend-lib: ^3.7.3
+  decky-frontend-lib: ^3.18.4
   fast-levenshtein: ^3.0.0
   husky: ^8.0.1
   lint-staged: ^13.0.3
@@ -26,7 +26,7 @@ specifiers:
   typescript: ^4.8.4
 
 dependencies:
-  decky-frontend-lib: 3.7.3
+  decky-frontend-lib: 3.18.4
   fast-levenshtein: 3.0.0
   localforage: 1.10.0
   react: 18.2.0
@@ -786,10 +786,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /decky-frontend-lib/3.7.3:
-    resolution: {integrity: sha512-HFHI19zr3gzOXDBF0DE9W+ZSx+mtjc/XqCYANoVfpMaDX1ITZpk2lMzBGuh9QvtHZ4LygtYEPIWDlrJDs8rGKA==}
-    dependencies:
-      minimist: 1.2.6
+  /decky-frontend-lib/3.18.4:
+    resolution: {integrity: sha512-i3TAe3RJtT1TK0rJgW9Ek5jxMWZRCYLDvqHDylGVieUvuyI7c8X+cogz30pP4cqeGOaA1d/MxBEbhlpD3JhVvg==}
     dev: false
 
   /deepmerge/4.2.2:
@@ -1364,6 +1362,7 @@ packages:
 
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
+    dev: true
 
   /ms/2.1.2:
     resolution: {integrity: sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==}
